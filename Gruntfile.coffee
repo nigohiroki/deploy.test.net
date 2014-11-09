@@ -1,6 +1,8 @@
 module.exports = (grunt) ->
-  grunt.initConfig
+  configObject = {
     pkg: grunt.file.readJSON 'package.json'
-    mytask: { foo: 'bar' }
+    aws_config: require("./shared/config/aws")
+  }
+  grunt.initConfig configObject
 
   grunt.task.loadTasks "tasks"
