@@ -1,0 +1,21 @@
+{
+  "name": "deploy.test.net",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nigohiroki/deploy.test.net.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/nigohiroki/deploy.test.net/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5"
+  }
+}
