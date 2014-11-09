@@ -1,7 +1,6 @@
 module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
+    mytask: { foo: 'bar' }
 
-  grunt.loadNpmTasks 'grunt-contrib-watch'
-  grunt.registerTask 'default', ['watch']
-  return
+  grunt.task.loadTasks "tasks"
