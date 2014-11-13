@@ -3,4 +3,3 @@ module.exports = (grunt) ->
   grunt.registerTask "deploy", 'S3 deploy tool', () ->
     AWS = require('aws-sdk')
     AWS.config.update(grunt.config('aws_config'))
-    s3 = new AWS.S3()
