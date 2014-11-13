@@ -20,7 +20,5 @@
     "grunt-contrib-watch": "~0.6.1",
     "aws-sdk": "~2.0.25"
   },
-  "dependencies": {
-    "nodegit": "^0.1.4"
-  }
+  "dependencies": {}
 }

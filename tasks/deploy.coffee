@@ -9,3 +9,6 @@ module.exports = (grunt) ->
     fs = require('fs')
     d  = new Date()
     fs.mkdir "./releases/" + d.getFullYear() + d.getMonth() + d.getDate() + d.getHours() + d.getMinutes()
+
+    # git clone
+    console.log require("nodegit")
