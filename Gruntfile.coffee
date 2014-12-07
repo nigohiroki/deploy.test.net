@@ -1,15 +1,22 @@
 module.exports = (grunt) ->
+  # AWSのkey, secret, regionを設定
   aws_config   = require("./shared/config/aws")
+  # git関連のパラメータを設定
+  git_config   = require("./shared/config/git")
+  
+  # 各タスクの設定
   configObject = {
     pkg: grunt.file.readJSON 'package.json'
-    aws_config: require("./shared/config/aws") # awsのIDを設定
-    repository_name: 'nigohiroki.github.io'
+    # リポジトリの名前を入れる
+    repository_name: git_config.repository_name
+    # git cloneの設定, リポジトリのURL, branchを設定
     gitclone:
       clone:
         options:
-          repository: "https://github.com/nigohiroki/nigohiroki.github.io.git"
-          branch: 'master'
+          repository: git_config.repository
+          branch: git_config.branch
           cwd: 'releases'
+    # s3 uploadシステムの設定
     aws_s3:
       options:
         accessKeyId:     aws_config.access_key_id
@@ -19,7 +26,8 @@ module.exports = (grunt) ->
         downloadConcurrency: 5
       production:
         options:
-          bucket: grunt.file.readJSON('package.json').name
+          # bucket名の設定
+          bucket: aws_config.bucket
           differential: true
         files: [
           { cwd: 'current',dest: 'current', action: 'delete' },
@@ -28,6 +36,9 @@ module.exports = (grunt) ->
   }
   grunt.initConfig configObject
 
+  # taskの利用
   grunt.loadNpmTasks 'grunt-git'
   grunt.loadNpmTasks 'grunt-aws-s3'
+  grunt.loadNpmTasks 'grunt-contrib-concat'
+  grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.task.loadTasks "tasks"

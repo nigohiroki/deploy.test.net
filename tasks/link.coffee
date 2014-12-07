@@ -6,7 +6,6 @@ module.exports = (grunt) ->
     path = require('path')
     d    = new Date()
     release_path = "./releases/" + d.getFullYear() + d.getMonth() + d.getDate() + d.getHours() + d.getMinutes() + d.getSeconds()
-    package_json = grunt.file.readJSON 'package.json'
    
     # cloneしてきたものをrename
     fs.renameSync './releases/' + grunt.config.data.repository_name, release_path

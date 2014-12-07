@@ -1,3 +1,4 @@
 /releases
 /current
 /shared/config/aws.coffee
+/shared/config/git.coffee
