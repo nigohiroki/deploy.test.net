@@ -33,6 +33,16 @@ module.exports = (grunt) ->
           { cwd: 'current',dest: 'current', action: 'delete' },
           { expand: true, cwd: 'current', src: ['**'], dest: 'current' }
         ]
+    # jsの結合設定
+    concat:
+      files:
+        src: 'current/**/*.js'
+        dest: 'current/js/concat/master.js'
+    # jsのminify設定
+    uglify:
+      dist:
+        files:
+          'current/js/min/master-min.js': 'current/js/concat/master.js'
   }
   grunt.initConfig configObject
 
