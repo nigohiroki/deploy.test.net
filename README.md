@@ -54,6 +54,7 @@ git, configファイルを編集
 ## 結合、minify設定
 
 tasks/deploy.coffeeの設定を変更する
+
     vim tasks/deploy.coffee
     module.exports = (grunt) ->
     # タスクの定義
