@@ -19,15 +19,29 @@ Github(Bitbucket)リポジトリの内容をS3にアップロードするため�
 * uglify (jsファイルをminifyする)
 * aws_s3 (S3にアップロードする required)
 
-## 使い方
+## 設定
+ソースファイルをclone
     git clone git@github.com:nigohiroki/deploy.test.net.git
 
+configファイル作成
     cp shared/config/aws_temp.coffee shared/config/aws.coffee
     cp shared/config/git_temp.coffee shared/config/git.coffee
     
+aws, configファイルを編集
     vim shared/config/aws.coffee
     module.exports =
       access_key_id:     'xxxxxxxxx'
       secret_access_key: 'xxxxxxxxxxxxxxxxxx'
       region:            'REGION'
       bucket:            'BUCKET NAME'
+      
+git, configファイルを編集
+    vim shared/config/git.coffee
+    module.exports =
+     repository_name: 'REPOSITORY NAME'
+     repository: 'REPOSITORY URL'
+     branch: 'TARGET BRANCH'
+     
+## 使い方
+コマンド
+    grunt deploy
