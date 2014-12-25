@@ -22,4 +22,12 @@ Github(Bitbucket)リポジトリの内容をS3にアップロードするため�
 ## 使い方
     git clone git@github.com:nigohiroki/deploy.test.net.git
 
-
+    cp shared/config/aws_temp.coffee shared/config/aws.coffee
+    cp shared/config/git_temp.coffee shared/config/git.coffee
+    
+    vim shared/config/aws.coffee
+    module.exports =
+      access_key_id:     'xxxxxxxxx'
+      secret_access_key: 'xxxxxxxxxxxxxxxxxx'
+      region:            'REGION'
+      bucket:            'BUCKET NAME'
