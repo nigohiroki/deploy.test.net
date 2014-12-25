@@ -20,4 +20,6 @@ Github(Bitbucket)リポジトリの内容をS3にアップロードするため�
 * aws_s3 (S3にアップロードする required)
 
 ## 使い方
-git clone 
+    git clone git@github.com:nigohiroki/deploy.test.net.git
+
+
