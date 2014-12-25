@@ -21,13 +21,16 @@ Github(Bitbucket)リポジトリの内容をS3にアップロードするため�
 
 ## 設定
 ソースファイルをclone
+
     git clone git@github.com:nigohiroki/deploy.test.net.git
 
 configファイル作成
+
     cp shared/config/aws_temp.coffee shared/config/aws.coffee
     cp shared/config/git_temp.coffee shared/config/git.coffee
     
 aws, configファイルを編集
+
     vim shared/config/aws.coffee
     module.exports =
       access_key_id:     'xxxxxxxxx'
@@ -36,6 +39,7 @@ aws, configファイルを編集
       bucket:            'BUCKET NAME'
       
 git, configファイルを編集
+
     vim shared/config/git.coffee
     module.exports =
      repository_name: 'REPOSITORY NAME'
@@ -44,4 +48,5 @@ git, configファイルを編集
      
 ## 使い方
 コマンド
+
     grunt deploy
