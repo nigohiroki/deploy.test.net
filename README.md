@@ -103,5 +103,8 @@ vim tasks/deploy.coffee
 を追加
 
 参考資料
-[jsのfilesystem]: http://nodejs.org/api/fs.html "jsのファイルシステムについて"
-[CoffeeScript]: http://coffeescript.org/ "coffeescriptについて"
+jsのファイルシステムについて
+<http://nodejs.org/api/fs.html>
+
+coffeescriptについて
+<http://coffeescript.org/>
