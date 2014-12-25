@@ -50,3 +50,57 @@ git, configファイルを編集
 コマンド
 
     grunt deploy
+
+## 結合、minify設定
+
+tasks/deploy.coffeeの設定を変更する
+    vim tasks/deploy.coffee
+    module.exports = (grunt) ->
+    # タスクの定義
+    grunt.registerTask "deploy", 'S3 deploy tool', () ->
+        # git clone 
+        grunt.task.run 'gitclone'
+        # cloneしてきたものをcurrentにlink
+        grunt.task.run 'link'
+        # jsの前処理
+        # 結合
+        grunt.task.run 'concat'
+        # minify
+        grunt.task.run 'uglify'
+        # s3 upload
+        grunt.task.run 'aws_s3'
+        
+結合しない場合 'concat' をコメントアウト
+minifyしない場合 'uglify' をコメントアウト
+
+## 追加機能モジュール開発方法
+
+vim tasks/xxx.coffee
+で新規ファイルを作成する
+
+vim tasks/deploy.coffee
+を編集する
+    
+    grunt.task.run 'xxx'
+
+を追加
+
+### 外部ライブラリを使う場合
+
+    sudo npm install xxx --save-dev
+
+でライブラリをインストール
+Gruntfile.coffeeを変更
+    
+    grunt.loadNpmTasks 'xxx'
+
+vim tasks/deploy.coffee
+を編集する
+    
+    grunt.task.run 'xxx'
+
+を追加
+
+参考資料
+[jsのfilesystem]: http://nodejs.org/api/fs.html "jsのファイルシステムについて"
+[CoffeeScript]: http://coffeescript.org/ "coffeescriptについて"
