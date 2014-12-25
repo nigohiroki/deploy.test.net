@@ -13,5 +13,11 @@ Github(Bitbucket)リポジトリの内容をS3にアップロードするため�
 4. currentの内容をS3にアップロードする
 
 ### 構造(5つのモジュール)
-* gitclone (git cloneを行うマネージャー)
-* link (cloneしたファイルをcurrentに紐付ける)
+* gitclone (git cloneを行うマネージャー required)
+* link (cloneしたファイルをcurrentに紐付ける required)
+* concat (jsファイルを一つに結合する)
+* uglify (jsファイルをminifyする)
+* aws_s3 (S3にアップロードする required)
+
+## 使い方
+git clone 
